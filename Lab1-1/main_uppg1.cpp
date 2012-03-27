@@ -2,9 +2,8 @@
 // Kenneth Bjerner 2003-12-21
 // Ändrad 2005-01-21 av KB
 
-#include <iostream>
-#include "statistics.h"
-
+#include <cmath>
+#include <iomanip>
 #include <iostream>
 #include "statistics.h"
 
@@ -18,6 +17,9 @@ void print(int a[], int n);
 
 //copy kopierar n heltal från arrayen from till arrayen to.
 void copy (int *to, int *from, int n);
+
+double std_dev (int a[], int n);
+
 
 using std::cout;	using std::endl;
 
@@ -45,6 +47,9 @@ int main ()
 
 	double m = median (theCopy, count);
 	cout << "Medianvärdet = " << m << "." << endl;
+    
+    double stdDev = std_dev (theCopy, count);
+	cout << "Standardavvikelse = " << stdDev << "." << endl;
 
 	return 0;
 }
@@ -67,7 +72,7 @@ int read_int (int a[])
 void print(int a[], int n)
 {
     for (int i = 0; i < n; i++) {
-        cout << a[i] << ( (n%11 == 10) ? "\n" : " " );
+        cout << std::setw(5) << a[i] << ( (i%10 == 9) ? "\n" : " " );
     }
 }
 
@@ -77,4 +82,14 @@ void copy (int *to, int *from, int n)
     for (int i = 0; i < n; i++) {
         to[i] = from[i];
     }
+}
+
+double std_dev (int a[], int n)
+{
+    double sum = 0;
+    double theMean = mean(a, n);
+    for (int i = 0; i < n; i++) {
+        sum += pow(a[i] - theMean, 2);
+    }
+    return sqrt(sum/n);
 }

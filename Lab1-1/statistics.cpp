@@ -43,7 +43,7 @@ double mean (int a[], int n)
 //i mitten.
 double median (int a[], int n)
 {
-    return n%2 ? (double) a[n/2-1] : ((double) (a[n/2-1] + a[n/2]) / 2);
+    return n%2 ? (double) a[n/2] : ((double) (a[n/2-1] + a[n/2]) / 2);
 }
 
 //Funktionen sort sorterar n heltal i arrayen a med en annan sorterings-
