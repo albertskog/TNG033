@@ -11,15 +11,15 @@ int main()
   int A2[] = { 2, 3, 4 };
 
   Set S1(A1, 3);
-  Set S2(A2, 3);
+/*  Set S2(A2, 3);
 
   Set S3;
   Set S4;
   Set S5(S1);
-
+*/
   cout << "\n** constructors\n" << endl;
   cout << "S1 = " << S1 << endl;
-  cout << "S2 = " << S2 << endl;
+/*  cout << "S2 = " << S2 << endl;
   cout << "S3 = " << S3 << endl;
   cout << "S4 = " << S4 << endl;
   cout << "S5 = " << S5 << endl;
@@ -61,6 +61,6 @@ int main()
   cout << "S4 == S5 ? " << (S4 == S5 ? 'T' : 'F') << endl;
   cout << "S4 <= S5 ? " << (S4 <= S5 ? 'T' : 'F') << endl;
   cout << "S4 <  S5 ? " << (S4 <  S5 ? 'T' : 'F') << endl;
-
+*/
   return 0;
 }
