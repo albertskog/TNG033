@@ -52,20 +52,30 @@ bool Set::empty () const
     return !header->next;
 }
 
-int Set::cardinality() const
-{
-
+int Set::cardinality() const {
+    int i = 0;
+    for (Node* n = header->next; n; n = n->next) {
+        i++;
+    }
+    return i;
 }
 
-bool Set::member (int x) const
-{
-
+bool Set::member (int x) const {
+    for (Node* n = header->next; n; n = n->next) {
+        if (x == n->value) {
+            return true;
+        }
+    }
+    return false;
 }
 
 //overloaded operators
-Set Set::operator+ (const Set& b) const
-{
-
+Set Set::operator+ (const Set& b) const {
+    Set* newSet = new Set(b);
+    for (Node* n = header->next; n; n = n->next) {
+        newSet->insert(n->value);
+    }
+    return *newSet;
 }
 
 Set Set::operator* (const Set& b) const
@@ -105,12 +115,12 @@ bool Set::operator<(const Set& b) const
 
 const Set& Set::operator=(const Set& b)
 {
-    //Node* to = header->next;
-    for (Node* n = b.header->next; n; n = n->next) {
+    //assuming this.empty() = 1
+    for (Node* n = b.header->next; n; n = n->next)
+    {
         insert(n->value);
-        //to = to->next;
     }
-    return *(new Set());
+    return *this;
 }
 
 void Set::insert (int value)
@@ -123,7 +133,8 @@ void Set::insert (int value)
     else
     {
         //..otherwise find the right place for it
-        for (Node* n = header->next; n; n = n->next) {
+        for (Node* n = header->next; n; n = n->next)
+        {
             if (value > n->value && n->next)
             {
                 if (value < n->next->value)
@@ -132,7 +143,7 @@ void Set::insert (int value)
                     return;
                 }
             }
-            else if(!n->next)
+            else if(value > n->value && !n->next)
             {
                 n->next = n->insert(value);
                 return;

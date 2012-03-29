@@ -28,7 +28,7 @@ int main()
 
   cout << "\n** assignment\n" << endl;
   cout << "S3 = " << S3 << endl;
-/*
+
   cout << "\n** member functions\n" << endl;
   for (int i = 1; i <= 5; i++) {
     cout << "S3.member(" << i << ") ? " << (S3.member(i) ? 'T' : 'F') << endl;
@@ -37,12 +37,12 @@ int main()
   cout << "\nS3.cardinality() = " << S3.cardinality() << endl;
 
   S3 = S1 + S2 + 4;
-  S4 = S1 * S2;
-  S5 = S1 - S2;
+  //S4 = S1 * S2;
+  //S5 = S1 - S2;
 
   cout << "\n** union, intersection, difference\n" << endl;
   cout << "S3 = " << S3 << endl;
-  cout << "S4 = " << S4 << endl;
+/*  cout << "S4 = " << S4 << endl;
   cout << "S5 = " << S5 << endl;
 
   cout << "\n** equality, subset, proper subset\n" << endl;
