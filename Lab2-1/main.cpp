@@ -37,12 +37,12 @@ int main()
   cout << "\nS3.cardinality() = " << S3.cardinality() << endl;
 
   S3 = S1 + S2 + 4;
-  //S4 = S1 * S2;
-  //S5 = S1 - S2;
+  S4 = S1 * S2;
+  S5 = S1 - S2;
 
   cout << "\n** union, intersection, difference\n" << endl;
   cout << "S3 = " << S3 << endl;
-/*  cout << "S4 = " << S4 << endl;
+  cout << "S4 = " << S4 << endl;
   cout << "S5 = " << S5 << endl;
 
   cout << "\n** equality, subset, proper subset\n" << endl;
@@ -61,6 +61,6 @@ int main()
   cout << "S4 == S5 ? " << (S4 == S5 ? 'T' : 'F') << endl;
   cout << "S4 <= S5 ? " << (S4 <= S5 ? 'T' : 'F') << endl;
   cout << "S4 <  S5 ? " << (S4 <  S5 ? 'T' : 'F') << endl;
-*/
+
   return 0;
 }
