@@ -1,0 +1,32 @@
+Numbers with Letter Format
+
+One Two comma Four Three Five 
+
+minus One Two comma Four Three Five 
+
+One Two Zero comma Zero 
+
+Two Zero Zero comma Zero 
+
+Zero comma Zero 
+
+minus Zero comma Zero Zero Zero Zero Zero One 
+
+One Two comma Zero 
+
+One comma Two 
+
+minus Zero comma Zero One Two 
+
+Zero comma Zero Zero Zero Nine 
+
+One Three comma Eight Nine Seven Six 
+
+Zero comma Zero Zero Zero Zero Zero Nine 
+
+Zero comma Zero 
+
+Zero comma Zero 
+
+Zero comma Zero 
+
