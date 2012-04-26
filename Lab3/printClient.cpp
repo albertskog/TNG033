@@ -9,22 +9,13 @@
 #include <iostream>
 #include "printClient.h"
 
-PrintClient::PrintClient(std::ostream& out, PrintStrategy *newPrintStrategy){
-    currentPrintStrategy = newPrintStrategy;
-    
-}
-
-
-PrintClient::~PrintClient(){
-}
-
 //Sets the print strategy to the one given by newPrintStrategy
 void PrintClient::set_PrintStrategy (PrintStrategy *newPrintStrategy){
     currentPrintStrategy = newPrintStrategy;
 }
 
 void PrintClient::print(double x){
-    currentPrintStrategy->print(x);
+    currentPrintStrategy->print(currentOutStream, x);
 }
 
 void PrintClient::print(double *X, int n, std::string header){

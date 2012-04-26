@@ -2,9 +2,9 @@
 #include <iostream>
 #include <iomanip>
 
-#include "printWithComma.h"
+#include "printWithComma.cpp"
 #include "printScientific.h"
-#include "printClient.h"
+#include "printClient.cpp"
 
 
 using namespace std;

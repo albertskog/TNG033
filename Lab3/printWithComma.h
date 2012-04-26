@@ -13,7 +13,7 @@
 
 class PrintWithComma : public PrintStrategy{
     public:
-        void print(double d);
+    void print(std::ostream& outStream, double d);
 };
 
 #endif

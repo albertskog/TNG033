@@ -13,7 +13,7 @@
 
 class PrintScientific : public PrintStrategy{
 public:
-    void print(double d){std::cout << "scientific " << d;};
+    void print(std::ostream& outputStream, double d){std::cout << "scientific " << d;};
 };
 
 #endif

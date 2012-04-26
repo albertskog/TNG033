@@ -14,10 +14,8 @@
 
 class PrintStrategy{
     public:
-    PrintStrategy(std::ostream& out = std::cout);
-        virtual void print(double d) = 0;
-    protected:
-        std::ostream& outputStream;
+        PrintStrategy();
+    virtual void print(std::ostream& outStream, double d) = 0;
 };
 
 #endif

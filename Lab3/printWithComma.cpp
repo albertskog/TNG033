@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void PrintWithComma::print(double d){
+void PrintWithComma::print(std::ostream& outStream, double d){
     
     //convert to stringstream
     ostringstream tmp;
@@ -28,11 +28,11 @@ void PrintWithComma::print(double d){
     
     //replace . with ,
     replace(s.begin(), s.end(), '.', ',');
-    *PrintStrategy::outputStream << s;
+    outStream << s;
     
     //add trailing ,0 if needed
     if (s.rfind(',') == s.npos) {
-        *PrintStrategy::outputStream << ",0";
+        outStream << ",0";
     }
 
 }
