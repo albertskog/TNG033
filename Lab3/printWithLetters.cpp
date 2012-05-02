@@ -32,40 +32,40 @@ void PrintWithLetters::print(std::ostream &outStream, double d){
     for (size_t i = 0; i < s.length(); i++) {
         switch (s.at(i)) {
             case '0':
-                cout << "zero ";
+                outStream << "zero ";
                 break;
             case '1':
-                cout << "one ";
+                outStream << "one ";
                 break;
             case '2':
-                cout << "two ";
+                outStream << "two ";
                 break;
             case '3':
-                cout << "three ";
+                outStream << "three ";
                 break;
             case '4':
-                cout << "four ";
+                outStream << "four ";
                 break;
             case '5':
-                cout << "five ";
+                outStream << "five ";
                 break;
             case '6':
-                cout << "six ";
+                outStream << "six ";
                 break;
             case '7':
-                cout << "seven ";
+                outStream << "seven ";
                 break;
             case '8':
-                cout << "eight ";
+                outStream << "eight ";
                 break;
             case '9':
-                cout << "nine ";
+                outStream << "nine ";
                 break;
             case '.':
-                cout << "comma ";
+                outStream << "comma ";
                 break;
             case '-':
-                cout << "minus ";
+                outStream << "minus ";
             default:
                 break;
         }

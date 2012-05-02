@@ -17,10 +17,11 @@ void PrintScientific::print(std::ostream &outputStream, double d){
     
     ostringstream tmp;
     tmp << scientific << d;
-    int ePos = (int)tmp.str().find('e');
     string s = tmp.str();
+    int ePos = (int)s.find('e');
+
     
-    //Get the coeffivcient, without trailing zeros
+    //Get the coefficient, without trailing zeros
     int i = ePos;
     while (s.at(--i)=='0');    
     string coeff = s.substr(0, (s.at(i) == '.' ? i+2 : i+1));
@@ -28,11 +29,12 @@ void PrintScientific::print(std::ostream &outputStream, double d){
     //replace . with ,
     replace(coeff.begin(), coeff.end(), '.', ',');
     
+    outputStream << coeff << "*10^";
+    
     //Now get the exponent
     
-    //Remove e, - (and leading 0's)
-    int x = s.at(ePos+1) == '+' ? ePos+2 : ePos+1 ;
-    string exp = s.substr(x, s.length());
+    //Print sign if -
+    int exp = atoi(s.substr(ePos+1, s.npos).c_str());
+    outputStream << exp;
     
-    outputStream << coeff << "*10^" << exp;
 }

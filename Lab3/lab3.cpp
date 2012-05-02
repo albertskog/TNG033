@@ -82,9 +82,8 @@ int main()
                     break;
             case 4: 
                     howMany = load_file(seq, MAX);
-                    cout << "howmany= " << howMany << endl;
                     printcon.set_PrintStrategy(&pwc);
-                printcon.print(seq, howMany, "Numbers with Comma Format");
+                    printcon.print(seq, howMany, "Numbers with Comma Format");
                     break;
             case 5: 
                     howMany = load_file(seq, MAX);
@@ -94,7 +93,7 @@ int main()
             case 6: 
                     howMany = load_file(seq, MAX);
                     printcon.set_PrintStrategy(&pwl);
-                printcon.print(seq, howMany, "Numbers with Scientific Format");
+                    printcon.print(seq, howMany, "Numbers with Scientific Format");
                     break;
             case 7: break;
             default: cout << "Wrong option!!" << endl;
@@ -106,11 +105,9 @@ int main()
    return 0;
 }
 
-
 /******************************/
 /* 3. Functions definitions   */
 /******************************/
-
 
 //Display the menu
 void display_menu()
@@ -127,24 +124,19 @@ void display_menu()
     cout << setfill(' ');
 }
 
-
-
 //Load at most max numbers from file numbers.txt
 //into array X
 //Return the number of values stored in X
 int load_file(double *X, int max)
 {
     ifstream inFile("/Users/albert/Skola/TNG033/Lab3/numbers.txt");
-    
-    cout << "fail:" << inFile.fail() << endl;
-    
+        
     double tmp;
     int i = 0;
     
     while ( !inFile.eof() ) {
         //Make sure we got a number, and greater than 0
         if (inFile >> tmp) {
-            cout << "tmp: " << tmp << endl;
             X[i++] = tmp;
         }
         else{
