@@ -14,7 +14,6 @@
 
 class PrintStrategy{
     public:
-        PrintStrategy();
     virtual void print(std::ostream& outStream, double d) = 0;
 };
 

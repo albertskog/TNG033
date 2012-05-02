@@ -1,10 +1,12 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 
-#include "printWithComma.cpp"
+#include "printWithComma.h"
 #include "printScientific.h"
-#include "printClient.cpp"
+#include "printWithLetters.h"
+#include "printClient.h"
 
 
 using namespace std;
@@ -33,30 +35,33 @@ int load_file(double *X, int max);
 /******************************/
 
 int main()
-{
+{    
     const int MAX = 100;
 
 
     //printing strategies (algorithms)
     PrintWithComma pwc; //comma format
     PrintScientific psc;
+    PrintWithLetters pwl;
 
      //a print client
     PrintClient printcon;
 
 
-    int option;
+    int option = 3;
     double d = 0;
 
     double seq[MAX];
     int howMany = 0;
 
     do{
+        
         display_menu();
         cout << "Option ? ";
         cin >> option;
         cin.ignore();
 
+        cout << "\n\n";
         switch (option){
             case 1: cout << "The number: ";
                     cin >> d;
@@ -69,13 +74,27 @@ int main()
                     printcon.set_PrintStrategy(&psc);
                     printcon.print(d);
                     break;
-            case 3: //Add code
+            case 3: 
+                    cout << "The number: ";
+                    cin >> d;
+                    printcon.set_PrintStrategy(&pwl);
+                    printcon.print(d);
                     break;
-            case 4: //Add code
+            case 4: 
+                    howMany = load_file(seq, MAX);
+                    cout << "howmany= " << howMany << endl;
+                    printcon.set_PrintStrategy(&pwc);
+                printcon.print(seq, howMany, "Numbers with Comma Format");
                     break;
-            case 5: //Add code
+            case 5: 
+                    howMany = load_file(seq, MAX);
+                    printcon.set_PrintStrategy(&psc);
+                    printcon.print(seq, howMany, "Numbers with Letter Format");
                     break;
-            case 6: //Add code
+            case 6: 
+                    howMany = load_file(seq, MAX);
+                    printcon.set_PrintStrategy(&pwl);
+                printcon.print(seq, howMany, "Numbers with Scientific Format");
                     break;
             case 7: break;
             default: cout << "Wrong option!!" << endl;
@@ -115,8 +134,27 @@ void display_menu()
 //Return the number of values stored in X
 int load_file(double *X, int max)
 {
-    //Add code
-    return 0;
+    ifstream inFile("/Users/albert/Skola/TNG033/Lab3/numbers.txt");
+    
+    cout << "fail:" << inFile.fail() << endl;
+    
+    double tmp;
+    int i = 0;
+    
+    while ( !inFile.eof() ) {
+        //Make sure we got a number, and greater than 0
+        if (inFile >> tmp) {
+            cout << "tmp: " << tmp << endl;
+            X[i++] = tmp;
+        }
+        else{
+            //Reset the stream and ignore the present value
+            inFile.clear();
+            inFile.ignore();
+        }
+    }  
+    
+    return i;
 }
 
 
