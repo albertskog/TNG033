@@ -29,10 +29,10 @@ void PrintWithComma::print(std::ostream& outStream, double d){
     //replace . with ,
     replace(s.begin(), s.end(), '.', ',');
     outStream << s;
-    /*
+    
     //add trailing ,0 if needed
     if (s.rfind(',') == s.npos) {
         outStream << ",0";
     }
-*/
+
 }

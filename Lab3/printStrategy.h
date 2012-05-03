@@ -15,6 +15,7 @@
 class PrintStrategy{
     public:
     virtual void print(std::ostream& outStream, double d) = 0;
+    //virtual std::string fileName(std::string file) = 0;
 };
 
 #endif
